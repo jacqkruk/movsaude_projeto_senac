@@ -266,6 +266,12 @@ public class LoginTela extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        // Registra o shutdown hook
+        Runtime.getRuntime().addShutdownHook(new Thread(()-> {
+            System.out.println("Encerrando aplicação... liberando recursos.");
+            JpaUtil.closeFactory();
+        }));
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

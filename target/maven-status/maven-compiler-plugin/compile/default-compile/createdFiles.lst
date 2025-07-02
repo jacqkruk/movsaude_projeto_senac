@@ -10,6 +10,7 @@ com\senacpi\tela\InicioTela$1.class
 com\senacpi\dao\UsuarioDao.class
 com\senacpi\tela\ListagemPaciTela$1.class
 com\senacpi\tela\InicioTela$4.class
+com\senacpi\dao\Env.class
 com\senacpi\modelo\Usuario.class
 com\senacpi\controle\InicioControle.class
 com\senacpi\tela\InicioTela$5.class

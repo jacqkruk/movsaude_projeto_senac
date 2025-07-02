@@ -1,0 +1,38 @@
+# Diretórios de build
+/target/
+
+# Arquivos de log
+*.log
+
+# Arquivos de configuração locais
+*.env
+*.properties
+*.yml
+*.yaml
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+# IntelliJ
+.idea/
+*.iml
+# Eclipse
+.project
+.classpath
+.settings/
+# VS Code
+.vscode/
+
+# Arquivos de compilação
+*.class
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+
+# Banco de dados local (se exportar dumps)
+*.sql
+*.db
