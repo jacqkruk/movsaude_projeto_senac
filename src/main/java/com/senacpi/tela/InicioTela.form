@@ -62,21 +62,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btnListaFuncionario" max="32767" attributes="0"/>
-                                      <Component id="btnCadastroFuncionario" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnListaPaciente" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnCadastroPaciente" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="btnSuporte" min="-2" pref="178" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -85,8 +70,20 @@
                               <Component id="lblData" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnListaFuncionario" max="32767" attributes="0"/>
+                              <Component id="btnCadastroFuncionario" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnListaPaciente" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCadastroPaciente" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -104,14 +101,13 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCadastroFuncionario" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                       <Component id="btnCadastroPaciente" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="btnSuporte" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btnListaPaciente" max="32767" attributes="0"/>
                       <Component id="btnListaFuncionario" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="96" max="32767" attributes="0"/>
+                  <EmptySpace pref="92" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,7 +126,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/cadFunc.png"/>
+              <Image iconType="3" name="/img/icon_cadFunc.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastro funcion&#xe1;rio"/>
             <Property name="toolTipText" type="java.lang.String" value="Cadastrar novo funcion&#xe1;rio"/>
@@ -148,7 +144,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/listagemFunc.png"/>
+              <Image iconType="3" name="/img/icon_listFunc.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Listagem funcion&#xe1;rio"/>
             <Property name="toolTipText" type="java.lang.String" value="Consultar e editar lista de funcion&#xe1;rios"/>
@@ -166,7 +162,7 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/cadPaciente.png"/>
+              <Image iconType="3" name="/img/icon_cadPac.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastro paciente"/>
             <Property name="toolTipText" type="java.lang.String" value="Cadastrar novo paciente"/>
@@ -184,12 +180,12 @@
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/listagemPaciente.png"/>
+              <Image iconType="3" name="/img/icon_listPac.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Listagem paciente"/>
             <Property name="toolTipText" type="java.lang.String" value="Consultar e editar lista de pacientes"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="btnSuporte"/>
+              <ComponentRef name="default"/>
             </Property>
           </Properties>
           <Events>
@@ -205,24 +201,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnSuporte">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/suporte.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Suporte"/>
-            <Property name="toolTipText" type="java.lang.String" value="Contatar suporte"/>
-            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="btnCadastroFuncionario"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuporteActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLogo">
           <Properties>

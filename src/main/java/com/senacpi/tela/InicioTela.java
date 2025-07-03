@@ -50,7 +50,6 @@ public class InicioTela extends javax.swing.JFrame {
         btnListaPaciente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        btnSuporte = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblNomeUsuario = new javax.swing.JLabel();
@@ -67,7 +66,7 @@ public class InicioTela extends javax.swing.JFrame {
         });
 
         btnCadastroFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cadFunc.png"))); // NOI18N
+        btnCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_cadFunc.png"))); // NOI18N
         btnCadastroFuncionario.setText("Cadastro funcionário");
         btnCadastroFuncionario.setToolTipText("Cadastrar novo funcionário");
         btnCadastroFuncionario.setNextFocusableComponent(btnListaFuncionario);
@@ -78,7 +77,7 @@ public class InicioTela extends javax.swing.JFrame {
         });
 
         btnListaFuncionario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnListaFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/listagemFunc.png"))); // NOI18N
+        btnListaFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_listFunc.png"))); // NOI18N
         btnListaFuncionario.setText("Listagem funcionário");
         btnListaFuncionario.setToolTipText("Consultar e editar lista de funcionários");
         btnListaFuncionario.setNextFocusableComponent(btnCadastroPaciente);
@@ -89,7 +88,7 @@ public class InicioTela extends javax.swing.JFrame {
         });
 
         btnCadastroPaciente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCadastroPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cadPaciente.png"))); // NOI18N
+        btnCadastroPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_cadPac.png"))); // NOI18N
         btnCadastroPaciente.setText("Cadastro paciente");
         btnCadastroPaciente.setToolTipText("Cadastrar novo paciente");
         btnCadastroPaciente.setNextFocusableComponent(btnListaPaciente);
@@ -100,10 +99,9 @@ public class InicioTela extends javax.swing.JFrame {
         });
 
         btnListaPaciente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnListaPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/listagemPaciente.png"))); // NOI18N
+        btnListaPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_listPac.png"))); // NOI18N
         btnListaPaciente.setText("Listagem paciente");
         btnListaPaciente.setToolTipText("Consultar e editar lista de pacientes");
-        btnListaPaciente.setNextFocusableComponent(btnSuporte);
         btnListaPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListaPacienteActionPerformed(evt);
@@ -112,17 +110,6 @@ public class InicioTela extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Início");
-
-        btnSuporte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSuporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/suporte.png"))); // NOI18N
-        btnSuporte.setText("Suporte");
-        btnSuporte.setToolTipText("Contatar suporte");
-        btnSuporte.setNextFocusableComponent(btnCadastroFuncionario);
-        btnSuporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuporteActionPerformed(evt);
-            }
-        });
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo_p.png"))); // NOI18N
 
@@ -154,22 +141,20 @@ public class InicioTela extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnListaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(27, 27, 27)
-                                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnListaPaciente)
-                                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                                        .addComponent(btnCadastroPaciente)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(pnlPrincipalLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblNomeUsuario))
-                            .addComponent(lblData))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                            .addComponent(lblData)))
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnListaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCadastroFuncionario))
+                        .addGap(27, 27, 27)
+                        .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnListaPaciente)
+                            .addComponent(btnCadastroPaciente))))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,13 +168,12 @@ public class InicioTela extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastroPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastroPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnListaPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnListaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblNomeUsuario))
@@ -237,11 +221,6 @@ public class InicioTela extends javax.swing.JFrame {
         listaPaci.setVisible(true);
     }//GEN-LAST:event_btnListaPacienteActionPerformed
 
-    /** Ações do botão suporte: Ainda não implementado. */
-    private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
-        JOptionPane.showMessageDialog(null, "Opção não disponível.");
-    }//GEN-LAST:event_btnSuporteActionPerformed
-
     /** Substituir label lblData pela data atual do sistema ao iniciar o form. */
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Date data = new Date();
@@ -254,7 +233,6 @@ public class InicioTela extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastroPaciente;
     private javax.swing.JButton btnListaFuncionario;
     private javax.swing.JButton btnListaPaciente;
-    private javax.swing.JButton btnSuporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
