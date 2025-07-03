@@ -57,11 +57,11 @@
 
 ---
 
-## Sobre o projeto
+## 👨‍🏫 Sobre o projeto
  Este projeto foi desenvolvido como parte das atividades práticas do curso **Técnico em Desenvolvimento de Sistemas** do **Senac EAD**, com o objetivo de aplicar conceitos de programação orientada a objetos, persistência de dados e interfaces gráficas. 
 
 ---
 
- ## Autor
+ ## 📌 Autor
  - Nome: Jake Kruk
  - GitHub: @jacqkruk
