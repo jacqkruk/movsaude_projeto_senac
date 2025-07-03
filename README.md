@@ -40,3 +40,28 @@
    ```bash
    git clone https://github.com/seu-usuario/movsaude.git
    cd movsaude
+
+2. **Configure o banco de dados:**
+
+   - Crie um banco de dados no mySQL (ex: movsaude_db)
+   - Importe o script SQL com as tabelas e dados iniciais
+   - Atualize o arquivo persistence.xml com as credenciais corretas do seu banco
+
+3. **Compile o projeto com Maven:**
+
+   mvn clean install
+
+4. **Execute o projeto:**
+   - Via IDE: execute a classe principal com o método main
+   - Ou via terminal
+
+---
+
+## Sobre o projeto
+ Este projeto foi desenvolvido como parte das atividades práticas do curso **Técnico em Desenvolvimento de Sistemas** do **Senac EAD**, com o objetivo de aplicar conceitos de programação orientada a objetos, persistência de dados e interfaces gráficas. 
+
+---
+
+ ## Autor
+ - Nome: Jake Kruk
+ - GitHub: @jacqkruk
