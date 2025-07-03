@@ -1,20 +1,23 @@
+-- Este script contém dados fictícios para fins educacionais.
+-- Nenhum CPF, telefone ou email representa uma pessoa real.
+
 USE db_movsaudemental;
 
 INSERT INTO paciente (nome, cpf, email, telefone, data_nascimento) VALUES 
-('Alan dos Reis', '512.374.039-28', 'alanreis@slb.com.br', '(44)99263-2386', '1960-03-10'),
-('Gabriel Matos', '592.561.959-50', 'matosgabriel@ytbrasil.com','(44)92590-4846', '1999-11-10'),
-('Luciano Cardoso', '043.588.309-78', 'luciano@ytbrasil.com.br', '(41)98211-1830', '1974-06-15'),
-('Maethe dos Reis', '043.588.309-78', 'maethereis@dedicasa.com', '(41)98211-1830', '1996-05-25'),
-('Ana Letícia dos Santos', '296.136.109-52', 'anasantos@email.com', '(41)99236-9568', '1977-07-27');
+('Alan dos Reis', '000.000.000-00', 'alanreis@example.com', '(00)90000-0000', '1960-03-10'),
+('Gabriel Matos', '123.456.789-00', 'matosgabriel@example.com','(11)98888-8888', '1999-11-10'),
+('Luciano Cardoso', '111.111.111-11', 'luciano@example.com', '(31)95555-5555', '1974-06-15'),
+('Maethe dos Reis', '999.999.999-99', 'maethereis@example.com', '(55)93333-3333', '1996-05-25'),
+('Ana Letícia dos Santos', '222.333.444-55', 'anasantos@example.com', '(99)97777-7777', '1977-07-27');
 
 INSERT INTO funcionario (nome, cpf, email, telefone, data_nascimento, setor) VALUES
-('Jenifer Araújo', '114.983.279-74', 'jessicaaraujo@psiatitude.com', '(43)99391-6051', '1999-08-19', 'psicologia'),
-('Stephany Carvalho', '755.916.049-27', 'esthecarvalho@psiatitude.com', '(43)99363-9482', '1988-05-07', 'psicologia'),
-('Ana Vonsbeker', '157.640.529-04', 'anabonassa@psiatitude.com', '(41)99839-6652', '1996-11-14', 'psicologia'),
-('Nilce de Lima', '629.636.599-38', 'nilcemoretto@psiatitude.com', '(45)98710-7898', '1980-08-31', 'psicologia'),
-('Leonardo Pereira', '169.792.589-82', 'leonmartins@psiatitude.com', '(41)98271-9849', '1983-07-21', 'psicologia'),
-('Cristine Aguilera', '533.419.039-25', 'crisaguilera@clinicatitude.com', '(41)98763-2413', '1989-01-22', 'financeiro'),
-('Mirian Almeida', '183.211.769-33', 'mirianalmeida@clinicatitude.com', '(46)99574-9539', '1980-03-17', 'financeiro');
+('Jenifer Araújo', '000.000.000-00', 'jenifer.araujo@example.com', '(00)90000-0000', '1999-08-19', 'psicologia'),
+('Stephany Carvalho', '123.456.789-00', 'stephany.carvalho@example.com', '(11)98888-8888', '1988-05-07', 'psicologia'),
+('Ana Vonsbeker', '111.111.111-11', 'ana.vonsbecker@example.com', '(99)97777-7777', '1996-11-14', 'psicologia'),
+('Nilce de Lima', '999.999.999-99', 'nilce.lima@example.com', '(21)96666-6666', '1980-08-31', 'psicologia'),
+('Leonardo Pereira', '321.654.987-00', 'leonardo.pereira@example.com', '(31)95555-5555', '1983-07-21', 'psicologia'),
+('Cristine Aguilera', '222.333.444-55', 'cris.aguilera@example.com', '(41)94444-4444', '1989-01-22', 'financeiro'),
+('Mirian Almeida', '888.777.666-11', 'mirian.almeida@example.com', '(55)93333-3333', '1980-03-17', 'financeiro');
 
 INSERT INTO usuario (nome, login, senha, perfil) VALUES 
 ('Jenifer Araújo', 'jenifer', MD5('2386'), 'admin'),
