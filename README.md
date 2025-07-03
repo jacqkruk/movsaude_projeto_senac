@@ -65,3 +65,8 @@
  ## 📌 Autor
  - Nome: Jake Kruk
  - GitHub: @jacqkruk
+
+ ## 📎 Atribuições
+ - Ícones de funcionário e pessoa criados por mattbadal - Flaticon
+ - ìcone de grupo de funcionários criado por apien - Flaticon
+ - Ícone de grupo de pessoas criado por Freepik - Flaticon
