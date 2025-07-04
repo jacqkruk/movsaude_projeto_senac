@@ -70,3 +70,7 @@
  - Ícones de funcionário e pessoa criados por mattbadal - Flaticon
  - ìcone de grupo de funcionários criado por apien - Flaticon
  - Ícone de grupo de pessoas criado por Freepik - Flaticon
+
+## 📄 Licença
+
+Este projeto está licenciado sob os termos da [Licença MIT](LICENSE).
