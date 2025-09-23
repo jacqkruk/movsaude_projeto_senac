@@ -199,25 +199,25 @@ public class InicioTela extends javax.swing.JFrame {
 
     /** Ações do botão Cadastro de Funcionário: abre a janela de cadastro. */
     private void btnCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroFuncionarioActionPerformed
-        CadFuncTela cadFuncTela = new CadFuncTela();
+        CadastroFuncionarioTela cadFuncTela = new CadastroFuncionarioTela();
         cadFuncTela.setVisible(true);
     }//GEN-LAST:event_btnCadastroFuncionarioActionPerformed
 
     /** Ações do botão Listagem de Funcionários: abre a janela de listagem. */
     private void btnListaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaFuncionarioActionPerformed
-        ListagemFuncTela tela = new ListagemFuncTela(usuario);
+        ListagemFuncionarioTela tela = new ListagemFuncionarioTela(usuario);
         tela.setVisible(true);
     }//GEN-LAST:event_btnListaFuncionarioActionPerformed
 
     /** Ações do botão Cadastro de Paciente: abre a janela de cadastro. */
     private void btnCadastroPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroPacienteActionPerformed
-        CadPacTela pacientes = new CadPacTela();
+        CadastroPacienteTela pacientes = new CadastroPacienteTela();
         pacientes.setVisible(true);
     }//GEN-LAST:event_btnCadastroPacienteActionPerformed
 
     /** Ações do botão Listagem de Pacientes: abre a janela de listagem. */
     private void btnListaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaPacienteActionPerformed
-        ListagemPaciTela listaPaci = new ListagemPaciTela(usuario);
+        ListagemPacienteTela listaPaci = new ListagemPacienteTela(usuario);
         listaPaci.setVisible(true);
     }//GEN-LAST:event_btnListaPacienteActionPerformed
 

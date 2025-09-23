@@ -6,6 +6,7 @@ import com.senacpi.dao.Criptografia;
 import com.senacpi.dao.JpaUtil;
 import com.senacpi.dao.UsuarioDao;
 import com.senacpi.modelo.Usuario;
+import com.senacpi.tela.InicioTela;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +15,6 @@ import javax.swing.JOptionPane;
  */
 public class LoginTela extends javax.swing.JFrame {
 
-    
     /**
      * Cria novo formulário LoginTela.
      * 
@@ -23,7 +23,10 @@ public class LoginTela extends javax.swing.JFrame {
      */
     public LoginTela() {
         initComponents();
-        
+        mostrarIconeBD();
+    }
+    
+    private void mostrarIconeBD() {
         // ícone indicando se o entityManager não consiga encontrar o banco de dados
         if (JpaUtil.getEntityManager() == null) {
             lblBd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_bd_falha.png")));
@@ -32,19 +35,6 @@ public class LoginTela extends javax.swing.JFrame {
         }
     }
  
-    /**
-     * Método para abrir a tela de início.
-     * Abre a tela de início de de acordo com o tipo de usuário logado. 
-     * Fecha a tela atual de login.
-     * @param usuario Objeto do usuário autenticado, utilizado para aplicar permissões e regras de acesso. 
-     */
-    private void abrirTela(Usuario usuario) {
-        InicioTela tela = new InicioTela(usuario);
-        
-        tela.setVisible(true);
-        this.dispose();
-    }
-     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,6 +55,7 @@ public class LoginTela extends javax.swing.JFrame {
         lblLogin = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         lblBd = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login MovSaude");
@@ -106,6 +97,7 @@ public class LoginTela extends javax.swing.JFrame {
 
         lblSenha.setText("Senha*");
 
+        txtUsuario.setText("jenifer");
         txtUsuario.setToolTipText("Digite o usuário (primeiro nome em letras minúsculas)");
         txtUsuario.setNextFocusableComponent(txtSenha);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -129,10 +121,13 @@ public class LoginTela extends javax.swing.JFrame {
         lblLogin.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblLogin.setText("Login");
 
+        txtSenha.setText("2386");
         txtSenha.setToolTipText("Digite a senha");
         txtSenha.setNextFocusableComponent(btnEntrar);
 
         lblBd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_bd_falha.png"))); // NOI18N
+
+        jLabel1.setText("jenifer 2386 | stephany 4846 | cris 1830");
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
@@ -152,14 +147,17 @@ public class LoginTela extends javax.swing.JFrame {
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(291, 291, 291)
+                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(lblBd))
-                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblBd)
+                        .addGap(153, 153, 153)
+                        .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel1)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlPrincipalLayout.setVerticalGroup(
@@ -174,13 +172,16 @@ public class LoginTela extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(lblBd)
+                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlPrincipalLayout.createSequentialGroup()
+                        .addComponent(lblSenha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(lblBd))
+                    .addComponent(jLabel1))
                 .addGap(55, 55, 55))
         );
 
@@ -205,35 +206,60 @@ public class LoginTela extends javax.swing.JFrame {
         String login = txtUsuario.getText();
         String senhaTexto = new String(txtSenha.getPassword());
         String senha = Criptografia.getMD5(senhaTexto);
-
+        
+        
         if (!lcontrole.formatosInvalidos(login, senhaTexto) && !lcontrole.camposVazios(login, senhaTexto)) {
             Usuario usuario = new Usuario();
             usuario.setLogin(login);
             usuario.setSenha(senha);
             
-            // validação
-            usuario = UsuarioDao.validarUsuario(usuario);
-            System.out.println(usuario.getLogin() + "" + usuario.getSenha());
-            
-            // se nenhum for encontrado, teremos um usuário nulo
-            if (usuario != null) {
-                switch (usuario.getPerfil().toLowerCase()) {
-                    case "admin":
-                        abrirTela(usuario);
-                        break;
-                    case "psi":
-                        abrirTela(usuario);
-                        break;
-                    case "fin": // se o usuario for do tipo financeiro
-                        abrirTela(usuario);
-                        break;
-                }
-            }
+            // validação: retorna null se não corresponder com o informado
+            Usuario usuarioValidado = UsuarioDao.validarUsuario(usuario);
+
+            // Abre a tela inicial do programa com as permissões do tipo de usuário
+            abrirTelaPorTipoUsuario(usuarioValidado);
         } else {
-            JOptionPane.showMessageDialog(null, "Não foi possível entrar no sistema.");
+            JOptionPane.showMessageDialog(null, "Usuário inválido. Verifique os campos preenchidos.");
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
+    // TODO: refatorar com else caso o usuário seja nulo
+    private void abrirTelaPorTipoUsuario(Usuario usuario) {
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(null, "Usuário não encontrado.");
+            return;
         }
 
-    }//GEN-LAST:event_btnEntrarActionPerformed
+        String perfil = usuario.getPerfil();
+       
+        if(perfil == null || perfil.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Perfil de usuário não definido.");
+            return;
+        }
+       
+        switch (usuario.getPerfil().toLowerCase()) {
+            case "admin":
+            case "psi":
+            case "fin": // se o usuario for do tipo financeiro
+                abrirTela(usuario);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Tipo de usuário descohecido.");
+                break;
+        }
+    } 
+    
+    /**
+     * Método para abrir a tela de início.
+     * Abre a tela de início de de acordo com o tipo de usuário logado. 
+     * Fecha a tela atual de login.
+     * @param usuario Objeto do usuário autenticado, utilizado para aplicar permissões e regras de acesso. 
+     */
+    private void abrirTela(Usuario usuario) {
+        InicioTela tela = new InicioTela(usuario);
+        tela.setVisible(true);
+        this.dispose();
+    }
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
@@ -282,6 +308,7 @@ public class LoginTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblBd;
     private javax.swing.JLabel lblLogin;

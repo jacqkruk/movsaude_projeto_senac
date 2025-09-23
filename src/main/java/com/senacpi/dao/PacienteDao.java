@@ -12,7 +12,7 @@ import jakarta.persistence.EntityManager;
  * @author Jake mk
  */
 public class PacienteDao {
-    
+
     /**
      * Cadastra um novo paciente no banco de dados.
      * 
@@ -32,7 +32,7 @@ public class PacienteDao {
             JpaUtil.closeEntityManager();
         }
     }
-    
+
     /**
      * Edita um paciente existente no banco de dados.
      * 
