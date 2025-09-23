@@ -4,6 +4,7 @@ package com.senacpi.tela;
 import com.senacpi.controle.CadastroPacienteControle;
 import com.senacpi.dao.PacienteDao;
 import com.senacpi.modelo.Paciente;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -26,7 +27,10 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
     }
 
      public void preencheEdicao(Paciente p) {
-        CadastroPacienteControle.prepararEdicao(p, txtId, txtNome, txtCpf, txtEmail, txtTel, fmtTxtNasc);
+        // cria um objeto e passa os itens da instância atual do formulário  
+        PacienteForm form = new PacienteForm(txtId, txtNome, txtCpf, txtEmail, txtTel, fmtTxtNasc);
+        
+        CadastroPacienteControle.prepararEdicao(p, form);
 
         pacEdicao = p;
     }
@@ -259,11 +263,11 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
      * @param evt Evento de clique gerado pelo botão "Enviar".
      */
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        Paciente novoPac = new Paciente();
+        Paciente novoPaciente = new Paciente();
         CadastroPacienteControle CadPacCon = new CadastroPacienteControle();
 
         if (pacEdicao != null) {
-            novoPac = pacEdicao;
+            novoPaciente = pacEdicao;
         }
 
         // Variáveis
@@ -276,30 +280,14 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
         // Validar se há formatos inválidos ou campos vazios antes de cadastrar o paciente
         if (CadPacCon.validarCampos(nome, cpf, email, tel, dataString)) {
             try {
-                novoPac.setNome(nome);
-                novoPac.setCpf(cpf);
-                novoPac.setEmail(email);
-                novoPac.setTelefone(tel);
+                novoPaciente.setNome(nome);
+                novoPaciente.setCpf(cpf);
+                novoPaciente.setEmail(email);
+                novoPaciente.setTelefone(tel);
+                novoPaciente.setDataNasc(converteData(dataString)); // converte string para date
                 
-                // converter string para date
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                Date dataNasc = formato.parse(dataString);
-                novoPac.setDataNasc(dataNasc);
-
                 // faz o cadastro do objeto Paciente
-                PacienteDao pacDao = new PacienteDao();
-                if (pacEdicao == null) {
-                    pacDao.cadastrar(novoPac);
-                    // mensagem de sucesso
-                    JOptionPane.showMessageDialog(this, "Paciente cadastrado com sucesso.");
-
-                    // edita o objeto Paciente existente
-                } else {
-                    pacDao.editar(pacEdicao);
-
-                    // mensagem de sucesso
-                    JOptionPane.showMessageDialog(this, "Paciente atualizado com sucesso.");
-                }
+                cadastrarPaciente(novoPaciente);
 
                 // fechar janela depois de finalizar o cadastro
                 dispose();
@@ -309,6 +297,36 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
+    //faz o cadastro do objeto Paciente
+    private void cadastrarPaciente(Paciente novoPac) {
+        PacienteDao pacienteDao = new PacienteDao();
+        
+        if (pacEdicao == null) {
+            pacienteDao.cadastrar(novoPac);
+            // mensagem de sucesso
+            JOptionPane.showMessageDialog(this, "Paciente cadastrado com sucesso.");
+
+            // edita o objeto Paciente existente
+        } else {
+            pacienteDao.editar(pacEdicao);
+            // mensagem de sucesso
+            JOptionPane.showMessageDialog(this, "Paciente atualizado com sucesso.");
+        }
+    }
+    
+    // TODO: puxar esse método de Pessoa, e apagar o método daqui
+    private Date converteData(String dataString) {
+        try {
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Date dataNasc;
+            return dataNasc = formato.parse(dataString);
+            
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Data não foi convertida corretamente.");
+        }
+        return null;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JFormattedTextField fmtTxtNasc;

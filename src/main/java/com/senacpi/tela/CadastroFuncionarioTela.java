@@ -31,7 +31,9 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
      * @param f 
      */
     public void preencheEdicao(Funcionario f) {
-        CadastroFuncionarioControle.prepararEdicao(f, txtId, cboxSetor, txtNome, txtCpf, txtEmail, txtTel, fmtTxtNasc);
+        FuncionarioForm form = new FuncionarioForm(txtId, cboxSetor, txtNome, txtCpf, txtEmail, txtTel, fmtTxtNasc);
+        
+        CadastroFuncionarioControle.prepararEdicao(f, form);
 
         funcionarioEdicao = f;
     }
@@ -324,6 +326,7 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
         }
     }
     
+    // TODO: puxar esse método de Pessoa ou de Funcionario, e apagar o método daqui
     private Date converteData(String dataString) {
         try {
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");

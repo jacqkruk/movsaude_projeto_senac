@@ -2,15 +2,10 @@
 package com.senacpi.controle;
 
 import com.senacpi.modelo.Paciente;
-import com.senacpi.tela.CadastroPacienteTela;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import com.senacpi.tela.PacienteForm;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import util.ConversorDeDatas;
 
 /**
  * Classe responsável pelo controle do cadastro de funcionários.
@@ -20,25 +15,25 @@ import javax.swing.JTextField;
  * @author Jake mk
  */
 public class CadastroPacienteControle {
-
+    
     /**
      *  Método que prepara um objeto Funcionario para cadastro com os dados informados pelo usuário.
      * 
-     * @param txtNome Campo de texto para o nome do paciente.
-     * @param txtCpf Campo de texto para o Cpf do paciente.
-     * @param txtEmail Campo de texto para o email do paciente.
-     * @param txtTel Campo de texto para o Teledone do paciente.
-     * @param fmtTxtNasc Campo de texto para a data de nascimento do paciente.
      * @return Retorna um objeto Paciente com os atributos preenchidos.
      */
-    public static Paciente prepararCadastro(JTextField txtNome,
-            JTextField txtCpf, JTextField txtEmail, JTextField txtTel, 
-            JFormattedTextField fmtTxtNasc) {
-       
+    public static Paciente prepararCadastro(PacienteForm form) {
+        String nome = form.getTxtNome().getText();
+        String cpf = form.getTxtCpf().getText();
+        String email = form.getTxtEmail().getText();
+        String tel = form.getTxtTel().getText();
+        String dataString = form.getFmtTxtNasc().getText();
+        Date dataNasc = ConversorDeDatas.converteStringParaDate(dataString);
+        /*
         String nome = txtNome.getText();
         String cpf = txtCpf.getText();
         String email = txtEmail.getText();
         String tel = txtTel.getText();
+        */
         
         // cria objeto Paciente que vai receber o input do usuario
         Paciente novoPaciente = new Paciente();
@@ -48,15 +43,8 @@ public class CadastroPacienteControle {
         novoPaciente.setCpf(cpf);
         novoPaciente.setEmail(email);
         novoPaciente.setTelefone(tel);
+        novoPaciente.setDataNasc(dataNasc);
         
-        // formatar data
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            novoPaciente.setDataNasc(sdf.parse(fmtTxtNasc.getText()));
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroPacienteTela.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         return novoPaciente;
     }
      
@@ -64,31 +52,24 @@ public class CadastroPacienteControle {
       * Método que prepara a edição dos dados de um paciente.
       * preenche os campos da tela de cadastro com os dados do paciente selecionado.
       * @param p Objeto paciente com os dados atuais.
-     * @param txtId
-      * @param txtNome Campo de texto para o nome do paciente.
-      * @param txtCpf Campo de texto para o CPF do paciente.
-      * @param txtEmail Campo de texto para o email do paciente.
-      * @param txtTel Campo de texto para o telefone do paciente.
-      * @param fmtTxtNasc Campo de texto formatado para a data de nascimento do paciente.
       */
-    public static void prepararEdicao(Paciente p, JTextField txtId, JTextField txtNome, JTextField txtCpf, JTextField txtEmail, JTextField txtTel, JFormattedTextField fmtTxtNasc) {
+    public static void prepararEdicao(Paciente p, PacienteForm form) {
         // obter informações do paciente selecionado na tabela da tela Listagem
         String id = String.valueOf(p.getId());
         String nome = p.getNome();
         String cpf = p.getCpf();
         String email = p.getEmail();
         String tel = p.getTelefone();
-        Date nasc = p.getDataNasc();
+        Date dataNasc = p.getDataNasc();
 
         // colocar essas informações nos campos da tela Cadastro
-        txtId.setText(id);
-        txtNome.setText(nome);
-        txtCpf.setText(cpf);
-        txtEmail.setText(email);
-        txtTel.setText(tel);
-        
-        SimpleDateFormat sdf = new SimpleDateFormat();
-        fmtTxtNasc.setText(sdf.format(nasc));
+        form.getTxtId().setText(id);
+        form.getTxtNome().setText(nome);
+        form.getTxtCpf().setText(cpf);
+        form.getTxtEmail().setText(email);
+        form.getTxtTel().setText(tel);
+        form.getFmtTxtNasc().setText(
+                ConversorDeDatas.converteDateParaString(dataNasc));     
     }
     
     /**

@@ -4,6 +4,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
+
 public class FuncionarioForm {
     private JTextField txtId;
     private JComboBox cboxSetor;
@@ -12,6 +13,9 @@ public class FuncionarioForm {
     private JTextField txtEmail;
     private JTextField txtTel;
     private JFormattedTextField fmtTxtNasc;
+
+    public FuncionarioForm() {
+    }
 
     public FuncionarioForm(JTextField txtId, JComboBox cboxSetor, 
                         JTextField txtNome, JTextField txtCpf, JTextField txtEmail, 

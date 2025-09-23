@@ -11,7 +11,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /** Classe base abstrata para entidades que representam pessoas.
  * 
