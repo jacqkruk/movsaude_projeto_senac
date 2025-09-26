@@ -31,11 +31,11 @@ public class ListagemFuncionarioTela extends javax.swing.JFrame {
         this.usuario = usuario;
         
         // preencher a tabela quando a janela é aberta
-        ListaFuncionarioControle lFuncCon = new ListaFuncionarioControle();
-        ListaFuncionarioDao lFuncDao = new ListaFuncionarioDao();
-        lFuncDao.listar();
-        lFuncCon.preencherTabela(lFuncDao.listar(), tblFuncionarios);
-        lFuncCon.habilitarBotoes(usuario, btnEditar, btnExcluir);
+        ListaFuncionarioControle listFuncionarioCtrl = new ListaFuncionarioControle();
+        ListaFuncionarioDao listFuncionarioDao = new ListaFuncionarioDao();
+        listFuncionarioDao.listar();
+        listFuncionarioCtrl.preencherTabela(listFuncionarioDao.listar(), tblFuncionarios);
+        listFuncionarioCtrl.habilitarBotoes(usuario, btnEditar, btnExcluir);
     }
 
     /**
@@ -260,11 +260,11 @@ public class ListagemFuncionarioTela extends javax.swing.JFrame {
                 String id = (String) tblFuncionarios.getValueAt(linhaSelec, 0);
 
                 // obter objeto funcionario da linha selecionada
-                FuncionarioDao funcDao = new FuncionarioDao();
-                Funcionario funcEditar = funcDao.obter(Integer.parseInt(id));
+                FuncionarioDao funcionarioDao = new FuncionarioDao();
+                Funcionario funcionarioEditar = funcionarioDao.obter(Integer.parseInt(id));
 
                 // repassar objeto para tela de cadastro
-                cadTela.preencheEdicao(funcEditar);
+                cadTela.preencheEdicao(funcionarioEditar);
                 cadTela.setVisible(true);
 
             } else {

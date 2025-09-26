@@ -4,10 +4,8 @@ import com.senacpi.controle.CadastroFuncionarioControle;
 import com.senacpi.controle.CadastroPacienteControle;
 import com.senacpi.dao.FuncionarioDao;
 import com.senacpi.modelo.Funcionario;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
+import util.ConversorDeDatas;
 
 /**
  * 
@@ -298,7 +296,8 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
                 novoFuncionario.setEmail(email);
                 novoFuncionario.setTelefone(telefone);
                 novoFuncionario.setSetor(cboxSetor.getSelectedItem().toString());
-                novoFuncionario.setDataNasc(converteData(dataString)); // converte string para date
+                novoFuncionario.setDataNasc(
+                        ConversorDeDatas.converteStringParaDate(dataString)); // converte string para date
 
                 // faz o cadastro do objeto Funcionario
                 cadastrarFuncionario(novoFuncionario);
@@ -326,18 +325,7 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
         }
     }
     
-    // TODO: puxar esse método de Pessoa ou de Funcionario, e apagar o método daqui
-    private Date converteData(String dataString) {
-        try {
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            Date dataNasc;
-            return dataNasc = formato.parse(dataString);
-            
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(null, "Data não foi convertida corretamente.");
-        }
-        return null;
-    }
+ 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;

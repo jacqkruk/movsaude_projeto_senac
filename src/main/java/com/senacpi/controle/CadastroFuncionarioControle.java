@@ -2,16 +2,10 @@
 package com.senacpi.controle;
 
 import com.senacpi.modelo.Funcionario;
-import com.senacpi.tela.CadastroFuncionarioTela;
 import com.senacpi.tela.FuncionarioForm;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextField;
+import util.ConversorDeDatas;
 
 /**
  * Classe responsável pelo controle do cadastro de funcionários.
@@ -35,23 +29,18 @@ public class CadastroFuncionarioControle {
     /**
      * Método que prepara um objeto Funcionario para cadastro com os dados informados pelo usuário.
      * 
-     * @param cboxSetor ComboBox contendo o setor do funcionário.
-     * @param txtNome Campo de texto para o nome do funcionário.
-     * @param txtCpf Campo de texto para o Cpf do funcionário.
-     * @param txtEmail Campo de texto para o email do funcionário.
-     * @param txtTel Campo de texto para o Teledone do funcionário.
-     * @param fmtTxtNasc Campo de texto para a data de nascimento do funcionário.
+     * @param form
      * @return Retorna um objeto Funcionario com os atributos preenchidos.
      */
-    public static Funcionario prepararCadastro(JComboBox cboxSetor, JTextField txtNome,
-            JTextField txtCpf, JTextField txtEmail, JTextField txtTel,
-            JFormattedTextField fmtTxtNasc) {
+    public static Funcionario prepararCadastro(FuncionarioForm form) {
        
-        String setor = cboxSetor.getSelectedItem().toString();
-        String nome = txtNome.getText();
-        String cpf = txtCpf.getText();
-        String email = txtEmail.getText();
-        String tel = txtTel.getText();
+        String setor = form.getCboxSetor().getSelectedItem().toString();
+        String nome = form.getTxtNome().getText();
+        String cpf = form.getTxtCpf().getText();
+        String email = form.getTxtEmail().getText();
+        String tel = form.getTxtTel().getText();
+        String dataString = form.getFmtTxtNasc().getText();
+        Date dataNasc = ConversorDeDatas.converteStringParaDate(dataString);
         
         // cria objeto Funcionario que vai receber o input do usuario
         Funcionario novoFuncionario = new Funcionario();
@@ -62,16 +51,9 @@ public class CadastroFuncionarioControle {
         novoFuncionario.setEmail(email);
         novoFuncionario.setTelefone(tel);
         novoFuncionario.setSetor(setor);
+        novoFuncionario.setDataNasc(dataNasc);
         //novoFuncionario.setCrp(crp);
         
-        // formatar data
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            novoFuncionario.setDataNasc(sdf.parse(fmtTxtNasc.getText()));
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroFuncionarioTela.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         return novoFuncionario;
     }
     
@@ -97,9 +79,9 @@ public class CadastroFuncionarioControle {
         form.getTxtCpf().setText(cpf);
         form.getTxtEmail().setText(email);
         form.getTxtTel().setText(tel);
+        form.getFmtTxtNasc().setText(
+            ConversorDeDatas.converteDateParaString(nasc));
         form.getCboxSetor().setSelectedItem(setor);
         
-        SimpleDateFormat sdf = new SimpleDateFormat();
-        form.getFmtTxtNasc().setText(sdf.format(nasc));
     }
 }
