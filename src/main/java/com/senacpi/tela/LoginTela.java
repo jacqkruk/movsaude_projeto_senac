@@ -6,7 +6,7 @@ import com.senacpi.dao.Criptografia;
 import com.senacpi.dao.JpaUtil;
 import com.senacpi.dao.UsuarioDao;
 import com.senacpi.modelo.Usuario;
-import com.senacpi.tela.InicioTela;
+import com.senacpi.tela.MenuTela;
 import javax.swing.JOptionPane;
 
 /**
@@ -256,7 +256,7 @@ public class LoginTela extends javax.swing.JFrame {
      * @param usuario Objeto do usuário autenticado, utilizado para aplicar permissões e regras de acesso. 
      */
     private void abrirTela(Usuario usuario) {
-        InicioTela tela = new InicioTela(usuario);
+        MenuTela tela = new MenuTela(usuario);
         tela.setVisible(true);
         this.dispose();
     }

@@ -19,6 +19,7 @@ public class CadastroPacienteControle {
     /**
      *  Método que prepara um objeto Funcionario para cadastro com os dados informados pelo usuário.
      * 
+     * @param form
      * @return Retorna um objeto Paciente com os atributos preenchidos.
      */
     public static Paciente prepararCadastro(PacienteForm form) {
@@ -48,13 +49,14 @@ public class CadastroPacienteControle {
         return novoPaciente;
     }
      
-     /**
-      * Método que prepara a edição dos dados de um paciente.
-      * preenche os campos da tela de cadastro com os dados do paciente selecionado.
-      * @param p Objeto paciente com os dados atuais.
-      */
+    /**
+     * Método que prepara a edição dos dados de um paciente.
+     * preenche os campos da tela de cadastro com os dados do paciente selecionado.
+     * @param p Objeto paciente com os dados atuais.
+     * @param form
+     */
     public static void prepararEdicao(Paciente p, PacienteForm form) {
-        // obter informações do paciente selecionado na tabela da tela Listagem
+        // obtém informações do paciente selecionado na tabela da tela Listagem
         String id = String.valueOf(p.getId());
         String nome = p.getNome();
         String cpf = p.getCpf();
@@ -62,14 +64,14 @@ public class CadastroPacienteControle {
         String tel = p.getTelefone();
         Date dataNasc = p.getDataNasc();
 
-        // colocar essas informações nos campos da tela Cadastro
+        // coloca essas informações nos campos da tela Cadastro
         form.getTxtId().setText(id);
         form.getTxtNome().setText(nome);
         form.getTxtCpf().setText(cpf);
         form.getTxtEmail().setText(email);
         form.getTxtTel().setText(tel);
         form.getFmtTxtNasc().setText(
-                ConversorDeDatas.converteDateParaString(dataNasc));     
+            ConversorDeDatas.converteDateParaString(dataNasc));     
     }
     
     /**

@@ -1,17 +1,18 @@
 
 package com.senacpi.tela;
 
-import com.senacpi.controle.InicioControle;
+import com.senacpi.controle.MenuControle;
 import com.senacpi.modelo.Usuario;
 import java.text.DateFormat;
 import java.util.Date;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jake mk
  */
-public class InicioTela extends javax.swing.JFrame {
+public final class MenuTela extends javax.swing.JFrame {
 
     // Armazena o usuário atualmente autenticado.
     private final Usuario usuario;
@@ -23,17 +24,22 @@ public class InicioTela extends javax.swing.JFrame {
      * 
      * @param usuario O usuário autenticado que acessou o sistema.
      */
-    public InicioTela(Usuario usuario) {
+    public MenuTela(Usuario usuario) {
         initComponents();
         // receber tipo de usuário
         this.usuario = usuario;
         
         // habilitar botões de acordo com as permissões de usuário
-        InicioControle iniControle = new InicioControle();
-        iniControle.habilitarBotoes(usuario, btnCadastroFuncionario, btnListaFuncionario, btnCadastroPaciente, btnListaPaciente);
+        MenuControle iniControle = new MenuControle();
+        iniControle.habilitarBotoes(usuario, botoesUsuario());
         lblNomeUsuario.setText(usuario.getNome());
     }
 
+    public BotoesInicio botoesUsuario() {
+        BotoesInicio botoes = new BotoesInicio(btnListaPaciente, btnListaFuncionario, btnCadastroPaciente, btnListaPaciente);
+        return botoes;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
