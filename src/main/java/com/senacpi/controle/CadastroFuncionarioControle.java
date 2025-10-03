@@ -1,10 +1,12 @@
 
 package com.senacpi.controle;
 
+import com.senacpi.dao.FuncionarioDao;
 import com.senacpi.modelo.Funcionario;
 import com.senacpi.tela.FuncionarioForm;
 import java.util.Date;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import util.ConversorDeDatas;
 
 /**
@@ -83,5 +85,20 @@ public class CadastroFuncionarioControle {
             ConversorDeDatas.converteDateParaString(nasc));
         form.getCboxSetor().setSelectedItem(setor);
         
+    }
+    
+     // faz o cadastro do objeto Funcionario
+    public void cadastrarFuncionario(Funcionario novoFuncionario, Funcionario funcionarioEdicao) {
+        FuncionarioDao funcionarioDao = new FuncionarioDao();
+        
+        if (funcionarioEdicao == null) {
+            funcionarioDao.cadastrar(novoFuncionario);
+            // mensagem de sucesso
+            JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso.");
+        } else {
+            funcionarioDao.editar(funcionarioEdicao);
+            // mensagem de sucesso
+            JOptionPane.showMessageDialog(null, "Funcionário atualizado com sucesso.");
+        }
     }
 }

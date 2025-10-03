@@ -6,6 +6,7 @@ import com.senacpi.dao.FuncionarioDao;
 import com.senacpi.modelo.Funcionario;
 import javax.swing.JOptionPane;
 import util.ConversorDeDatas;
+import util.Validadores;
 
 /**
  * 
@@ -14,6 +15,7 @@ import util.ConversorDeDatas;
 public class CadastroFuncionarioTela extends javax.swing.JFrame {
 
     private Funcionario funcionarioEdicao = null;
+    
 
     /**
      * Creates new form CadFuncTela
@@ -275,7 +277,8 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
      */
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         Funcionario novoFuncionario = new Funcionario();
-        CadastroPacienteControle CadPacienteControle = new CadastroPacienteControle();
+        CadastroFuncionarioControle cadastroFuncionarioControle = new CadastroFuncionarioControle();
+        Validadores validadores = new Validadores();
         
         if (funcionarioEdicao != null) {
             novoFuncionario = funcionarioEdicao;
@@ -289,7 +292,7 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
         String dataString = fmtTxtNasc.getText();
         
         // validar se há formatos inválidos ou campos vazios antes de cadastrar o funcionário
-        if (CadPacienteControle.validarCampos(nome, cpf, email, telefone, dataString)) {
+        if (validadores.validarCampos(nome, cpf, email, telefone, dataString)) {
             try {
                 novoFuncionario.setNome(nome);
                 novoFuncionario.setCpf(cpf);
@@ -300,7 +303,7 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
                         ConversorDeDatas.converteStringParaDate(dataString)); // converte string para date
 
                 // faz o cadastro do objeto Funcionario
-                cadastrarFuncionario(novoFuncionario);
+                cadastroFuncionarioControle.cadastrarFuncionario(novoFuncionario, funcionarioEdicao);
 
                 // fechar janela depois de finalizar o cadastro
                 dispose();
@@ -310,23 +313,6 @@ public class CadastroFuncionarioTela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
-    // faz o cadastro do objeto Funcionario
-    private void cadastrarFuncionario(Funcionario novoFuncionario) {
-        FuncionarioDao funcionarioDao = new FuncionarioDao();
-        
-        if (funcionarioEdicao == null) {
-            funcionarioDao.cadastrar(novoFuncionario);
-            // mensagem de sucesso
-            JOptionPane.showMessageDialog(this, "Funcionário cadastrado com sucesso.");
-        } else {
-            funcionarioDao.editar(funcionarioEdicao);
-            // mensagem de sucesso
-            JOptionPane.showMessageDialog(this, "Funcionário atualizado com sucesso.");
-        }
-    }
-    
- 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JComboBox<String> cboxSetor;

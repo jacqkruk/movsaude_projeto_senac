@@ -30,8 +30,8 @@ public final class MenuTela extends javax.swing.JFrame {
         this.usuario = usuario;
         
         // habilitar botões de acordo com as permissões de usuário
-        MenuControle iniControle = new MenuControle();
-        iniControle.habilitarBotoes(usuario, botoesUsuario());
+        MenuControle menuControle = new MenuControle();
+        menuControle.habilitarBotoes(usuario, botoesUsuario());
         lblNomeUsuario.setText(usuario.getNome());
     }
 

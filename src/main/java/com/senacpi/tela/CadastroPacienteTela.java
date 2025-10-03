@@ -2,12 +2,10 @@
 package com.senacpi.tela;
 
 import com.senacpi.controle.CadastroPacienteControle;
-import com.senacpi.dao.PacienteDao;
 import com.senacpi.modelo.Paciente;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
+import util.ConversorDeDatas;
+import util.Validadores;
 
 /**
  *
@@ -15,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class CadastroPacienteTela extends javax.swing.JFrame {
 
-    private Paciente pacEdicao = null;
+    private Paciente pacienteEdicao = null;
     
     /**
      * Creates new form CadPaciTela
@@ -32,7 +30,7 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
         
         CadastroPacienteControle.prepararEdicao(p, form);
 
-        pacEdicao = p;
+        pacienteEdicao = p;
     }
      
     /**
@@ -264,10 +262,11 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
      */
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         Paciente novoPaciente = new Paciente();
-        CadastroPacienteControle CadPacCon = new CadastroPacienteControle();
+        CadastroPacienteControle cadastroPacienteControle = new CadastroPacienteControle();
+        Validadores validadores = new Validadores();
 
-        if (pacEdicao != null) {
-            novoPaciente = pacEdicao;
+        if (pacienteEdicao != null) {
+            novoPaciente = pacienteEdicao;
         }
 
         // Variáveis
@@ -278,16 +277,18 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
         String dataString = fmtTxtNasc.getText();
 
         // Validar se há formatos inválidos ou campos vazios antes de cadastrar o paciente
-        if (CadPacCon.validarCampos(nome, cpf, email, tel, dataString)) {
+        if (validadores.validarCampos(nome, cpf, email, tel, dataString)) {
             try {
                 novoPaciente.setNome(nome);
                 novoPaciente.setCpf(cpf);
                 novoPaciente.setEmail(email);
                 novoPaciente.setTelefone(tel);
-                novoPaciente.setDataNasc(converteData(dataString)); // converte string para date
+                novoPaciente.setDataNasc(
+                        ConversorDeDatas.converteStringParaDate(dataString)); // converte string para date
                 
                 // faz o cadastro do objeto Paciente
-                cadastrarPaciente(novoPaciente);
+                cadastroPacienteControle.
+                        cadastrarPaciente(novoPaciente, pacienteEdicao);
 
                 // fechar janela depois de finalizar o cadastro
                 dispose();
@@ -297,36 +298,6 @@ public class CadastroPacienteTela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
-    //faz o cadastro do objeto Paciente
-    private void cadastrarPaciente(Paciente novoPac) {
-        PacienteDao pacienteDao = new PacienteDao();
-        
-        if (pacEdicao == null) {
-            pacienteDao.cadastrar(novoPac);
-            // mensagem de sucesso
-            JOptionPane.showMessageDialog(this, "Paciente cadastrado com sucesso.");
-
-            // edita o objeto Paciente existente
-        } else {
-            pacienteDao.editar(pacEdicao);
-            // mensagem de sucesso
-            JOptionPane.showMessageDialog(this, "Paciente atualizado com sucesso.");
-        }
-    }
-    
-    // TODO: puxar esse método de Pessoa, e apagar o método daqui
-    private Date converteData(String dataString) {
-        try {
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            Date dataNasc;
-            return dataNasc = formato.parse(dataString);
-            
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(null, "Data não foi convertida corretamente.");
-        }
-        return null;
-    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JFormattedTextField fmtTxtNasc;

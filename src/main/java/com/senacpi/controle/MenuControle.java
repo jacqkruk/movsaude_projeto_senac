@@ -3,7 +3,6 @@ package com.senacpi.controle;
 
 import com.senacpi.modelo.Usuario;
 import com.senacpi.tela.BotoesInicio;
-import javax.swing.JButton;
 
 /**
  * Classe responsável pelo controle da Tela de Início.
